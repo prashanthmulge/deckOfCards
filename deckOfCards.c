@@ -23,6 +23,17 @@ int comparedecks(int *deckArrPassed)
 	return TRUE;
 }
 
+void display(int *display, char *name)
+{
+	int j = 0;
+	printf("\n%s : ", name);
+	for (j = 1; j <= numOfCards; j++)
+	{
+		printf("%d", deckArr[j]);
+	}
+
+}
+
 int main(int argc, char **argv)
 {
 	int count = 0, index = 0, start = 1, i = 0, j = 0, ret = 0;
@@ -35,8 +46,11 @@ int main(int argc, char **argv)
 		printf("Enter the number of cards in a deck: Max to be 52!\n");
 		scanf("%d", &numOfCards);
 	}
-	printf("Number is : %d \n", numOfCards);
-	
+	if(numOfCards < 1 || numOfCards > 52)
+	{
+		printf("Please enter a valid number in range 1 - 52 \n");
+		exit(0);
+	}
 	initialArr = (int *) malloc ( (sizeof(int) * numOfCards) + 1);
 	deckArr = (int *) malloc ( (sizeof(int) * numOfCards) + 1);
 	superInitialArr = (int *) malloc ( (sizeof(int) * numOfCards) + 1);
@@ -66,18 +80,11 @@ int main(int argc, char **argv)
 		ret = comparedecks(deckArr);
 		if(ret)
 		{
+			count++;
 			break;
 		}
-		printf("\nInitial Array : ");
-		for (j = 1; j <= numOfCards; j++)
-		{
-			printf("%d", initialArr[j]);
-		}
-		printf("\nFinal Array : ");
-		for (j = 1; j <= numOfCards; j++)
-		{
-			printf("%d", deckArr[j]);
-		}
+//		display(initialArr, "Intial Array");
+//		display(deckArr, "Deck Array");
 		count += 1;
 		free(initialArr);
 		initialArr = (int *) malloc (sizeof(int) * numOfCards + 1);
@@ -87,17 +94,10 @@ int main(int argc, char **argv)
 		}
 		
 	}
-	printf("\nSuper Intial array : ");
-	for (j = 1; j <= numOfCards; j++)
-	{
-		printf("%d", superInitialArr[j]);
-	}
-	printf("\nFinal Array : ");
-	for (j = 1; j <= numOfCards; j++)
-	{
-		printf("%d", deckArr[j]);
-	}
-	printf("\nTotal count = %d\n", count + 1);
+//	display(superInitialArr, "Super Intial Array");
+//	display(deckArr, "Final Array");
+	fprintf(stdout, "%d\n", count);
+//	printf("Total count = %d\n", count);
 
 	return 0;
 }
