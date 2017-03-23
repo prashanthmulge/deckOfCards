@@ -66,6 +66,7 @@ int main(int argc, char **argv)
 		i = 0;
 		index = 0;
 		start = 1;
+		/* Iterating over multiple of 2, 4, 8, 16 ... indexex of array */
 		while (index < numOfCards)
 		{
 			i = start;
@@ -94,10 +95,13 @@ int main(int argc, char **argv)
 		}
 		
 	}
+	free(initialArr);
+	free(superInitialArr);
+	free(deckArr);
+
 //	display(superInitialArr, "Super Intial Array");
 //	display(deckArr, "Final Array");
 	fprintf(stdout, "%d\n", count);
-//	printf("Total count = %d\n", count);
 
 	return 0;
 }
