@@ -51,9 +51,9 @@ int main(int argc, char **argv)
 		printf("Please enter a valid number in range 1 - 52 \n");
 		exit(0);
 	}
-	initialArr = (int *) malloc ( (sizeof(int) * numOfCards) + 1);
-	deckArr = (int *) malloc ( (sizeof(int) * numOfCards) + 1);
-	superInitialArr = (int *) malloc ( (sizeof(int) * numOfCards) + 1);
+	initialArr = (int *) malloc ( (sizeof(int) * (numOfCards + 1)));
+	deckArr = (int *) malloc ( (sizeof(int) * (numOfCards + 1)));
+	superInitialArr = (int *) malloc ( (sizeof(int) * (numOfCards + 1)));
 	for(i = 0; i <= numOfCards; i++)
 	{
 		initialArr[i] = i;
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
 //		display(deckArr, "Deck Array");
 		count += 1;
 		free(initialArr);
-		initialArr = (int *) malloc (sizeof(int) * numOfCards + 1);
+		initialArr = (int *) malloc (sizeof(int) * (numOfCards + 1));
 		for (j = 0; j <= numOfCards; j++)
 		{
 			initialArr[j] = deckArr[j];
