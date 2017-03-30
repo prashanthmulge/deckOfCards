@@ -17,3 +17,6 @@ You are given a deck containing n cards.  While holding the deck:  1. Take the t
 	* When i take the top card off the deck and set it on table and take next card off the top and put it on bottom, we get a sequence from the statement.
 	* For each time of deck in hand, 1..3..5..7.... indexed cards go on the table stack and then 2..6..10..14 and followed by 4..12..20... and so on.
 	* So its basically its difference of index of 2 first, then 4, then 8, then 16 and so on for each time holding a deck in hand.
+
+* Complexity:
+	* For each round it takes O(N) time, so in total it would be k*O(N) (Where k = number of rounds and N is number of cards)
